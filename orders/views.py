@@ -3,8 +3,14 @@ from .models import *
 from django.db.models import Sum
 import json
 from django.http import JsonResponse
-
-
+from django.views.decorators.http import require_POST
+# Rest 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from django.shortcuts import get_list_or_404
+from .serializers import OrderSerializer
+from rest_framework.decorators import authentication_classes, permission_classes
 # calculation functions
 def calculate_cost(weight_Kg, service_type, distance_km=0):
   price_Kg = 3.0
@@ -14,11 +20,8 @@ def calculate_cost(weight_Kg, service_type, distance_km=0):
   grinding_cost = weight_Kg * price_Kg
   delivery = 0.0
   if service_type == 'DELIVERY':
-    delivery = distance_km * price_Km
-    if delivery < base_delivery_fee:
-      delivery = base_delivery_fee
-    else:
-      delivery = base_delivery_fee + (distance_km * price_Km)
+        calculated_delivery = distance_km * price_Km
+        delivery = max(base_delivery_fee, calculated_delivery)
 
   total_cost = grinding_cost + delivery
   return grinding_cost, delivery, total_cost
@@ -33,6 +36,7 @@ def calculate_wait_time(new_order_weight_kg):
   return int(estimated_minutes)
 
 # main Views 
+@require_POST
 def create_order_api(request):
   if request.method == 'POST':
     data = json.loads(request.body)
@@ -59,7 +63,41 @@ def create_order_api(request):
       {
         'status': 'success',
         'order_id': new_order.id,
+        'grinding_cost': grinding,
+        'delivery_cost': delivery,
         'total_cost': total,
         'estimated_wait_time_minutes': wait_time
       }
     )
+
+# create new Order end point 
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def create_order(request):
+  serializer = OrderSerializer(data=request.data)
+
+  if serializer.is_valid():
+    weight = serializer.validated_data.get('wheat_weight_kg', 0.0)
+    service_type = serializer.validated_data.get("service_type", 'SELF')
+    distance = float(request.data.get('distance_km', 0.0))
+    grinding, delivery, total = calculate_cost(weight, service_type, distance)
+    wait_time = calculate_wait_time(weight)
+
+    order = serializer.save(
+      grinding_cost = grinding,
+      delivery_cost = delivery,
+      total_cost = total,
+      estimated_wait_time_minutes = wait_time,
+      status = 'WAITING'
+    )
+
+    return Response({
+      'status' : 'success',
+      'order_id' : order.id,
+      'total_cost' : total,
+      'estimated_wait_time_minutes' : wait_time,
+      'order_details' : OrderSerializer(order).data
+    }, status=status.HTTP_201_CREATED)
+
+  return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -15,7 +15,7 @@ class Order(models.Model):
   phone_num = models.CharField(max_length=12)
   wheat_weight_kg = models.FloatField()
   service_type = models.CharField(max_length=10, choices=SERVICE_CHOICES, default='SELF')
-  manual_location = models.TextField()
+  manual_location = models.TextField(blank=True, null=True)
 
   # auto location 
   latitude = models.FloatField(null=True, blank=True)
