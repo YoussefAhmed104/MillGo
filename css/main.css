@@ -2,7 +2,7 @@
   --main-transition: 0.3s;
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 input:focus,
 textarea:focus {
@@ -178,4 +178,54 @@ header .account .bell {
   border-radius: 25px;
   border: none;
   font-size: 17px;
+}
+/* order page */
+.order_main h2 {
+  font-size: 40px;
+  margin: 40px 0 10px;
+}
+.order_main p {
+  font-size: 17px;
+  max-width: 900px;
+}
+.order_main form {
+  background-color: white;
+  max-width: 900px;
+  margin-top: 25px;
+  padding: 20px;
+}
+.order_main form input[type="text"],
+.order_main form input[type="number"] {
+  margin-bottom: 30px;
+  padding: 5px;
+  font-size: 15px;
+  width: 300px;
+  max-width: 100%;
+}
+.order_main form label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.service-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.order_main form input[type="radio"] {
+  display: none;
+}
+.order_main form input[type="radio"]:checked ~ label {
+  background-color: blue;
+}
+.order_main form label.radio {
+  width: fit-content;
+  border: 1px solid black;
+  padding: 20px 10px;
+}
+.order_main form label.radio:hover {
+  background-color: beige;
+  color: white;
+}
+.order_main form label.radio::before {
 }

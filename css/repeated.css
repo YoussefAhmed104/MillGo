@@ -2,7 +2,7 @@
   --main-transition: 0.3s;
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 input:focus,
 textarea:focus {
