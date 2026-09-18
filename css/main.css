@@ -197,10 +197,12 @@ header .account .bell {
 .order_main form input[type="text"],
 .order_main form input[type="number"] {
   margin-bottom: 30px;
-  padding: 5px;
-  font-size: 15px;
+  padding: 10px 5px;
+  font-size: 18px;
   width: 300px;
   max-width: 100%;
+  border: 1px solid #ddd;
+  outline: none;
 }
 .order_main form label {
   display: block;
@@ -215,17 +217,22 @@ header .account .bell {
 .order_main form input[type="radio"] {
   display: none;
 }
-.order_main form input[type="radio"]:checked ~ label {
-  background-color: blue;
+.order_main form input[type="radio"]:checked + label {
+  background-color: beige;
+  border-color: transparent;
 }
 .order_main form label.radio {
   width: fit-content;
   border: 1px solid black;
   padding: 20px 10px;
+  border-radius: 10px;
+  font-size: 18px;
 }
 .order_main form label.radio:hover {
   background-color: beige;
-  color: white;
+  border-color: transparent;
 }
-.order_main form label.radio::before {
+.order_main form h3 {
+  margin: 0 0 15px;
+  font-size: 22px;
 }
