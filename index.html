@@ -13,22 +13,30 @@
     <!-- Main CSS Style -->
     <link rel="stylesheet" href="css/main.css" />
     <!-- JS File -->
-    <script src="JS/script.js"></script>
+    <script src="JS/script.js" defer></script>
   </head>
   <body>
     <header>
-      <div class="page-container between-flex">
+      <div class="page-container ideal-flex">
         <div class="logo">
           <i class="fa-solid fa-building-wheat"></i>
           <span>MillGo</span>
         </div>
-        <ul class="d-flex gap-55">
-          <li>Dashboard</li>
-          <li>orders</li>
-          <li>queue</li>
-          <li>deliveries</li>
-          <li>reports</li>
-        </ul>
+        <div class="list">
+          <div class="yalahwy p-relative">
+            <div class="burger d-none" id="burger">
+              <i class="fa-solid fa-burger"></i>
+            </div>
+
+            <ul class="d-flex gap-20" id="dropUl">
+              <li>Dashboard</li>
+              <li>orders</li>
+              <li>queue</li>
+              <li>deliveries</li>
+              <li>reports</li>
+            </ul>
+          </div>
+        </div>
         <div class="account ideal-flex">
           <div class="bell">
             <i class="fa-solid fa-bell"></i>

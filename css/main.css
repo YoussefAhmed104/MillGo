@@ -1,3 +1,6 @@
+:root {
+  --main-transition: 0.3s;
+}
 body {
   overflow: hidden;
 }
@@ -50,9 +53,51 @@ header .logo span {
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 }
-header ul li {
+header .list {
+  flex: 1;
+  margin-left: 40px;
+  margin-right: 30px;
+}
+header .list .yalahwy {
+  width: fit-content;
+}
+
+header .list .yalahwy ul li {
+  padding: 5px 10px 0px 5px;
   font-size: 20px;
   text-transform: capitalize;
+  transition: var(--main-transition);
+}
+/* active */
+header .list ul.active {
+  display: flex;
+  flex-direction: column;
+}
+header .list .yalahwy .burger {
+  width: 40px;
+  height: 100%;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  header .list .yalahwy .burger {
+    display: flex;
+    width: 40px;
+    height: 100%;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+  }
+  header .list ul {
+    display: none;
+    position: absolute;
+
+    gap: 0;
+    top: calc(100% + 10px);
+    left: calc(100% - 30px);
+  }
 }
 header .account .bell {
   width: 40px;
