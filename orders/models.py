@@ -16,7 +16,7 @@ class Order(models.Model):
   wheat_weight_kg = models.FloatField()
   service_type = models.CharField(max_length=10, choices=SERVICE_CHOICES, default='SELF')
   manual_location = models.TextField(blank=True, null=True)
-
+  distance_km = models.FloatField(blank=True, null=True)
   # auto location 
   latitude = models.FloatField(null=True, blank=True)
   longtitude = models.FloatField(null=True, blank=True)

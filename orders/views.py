@@ -8,7 +8,7 @@ from django.views.decorators.http import require_POST
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from django.shortcuts import get_list_or_404
+from django.shortcuts import get_object_or_404
 from .serializers import OrderSerializer
 from rest_framework.decorators import authentication_classes, permission_classes
 # calculation functions
@@ -38,17 +38,17 @@ def calculate_wait_time(new_order_weight_kg):
 # main Views 
 @require_POST
 def create_order_api(request):
+  serializer = OrderSerializer(data= request.data)
   if request.method == 'POST':
-    data = json.loads(request.body)
-    weight = float(data.get('wheat_weight_kg', 0))
-    service_type = data.get('service_type', 'SELF')
+    weight = float(serializer.validated_data.get('wheat_weight_kg', 0))
+    service_type = serializer.validated_data.get('service_type', 'SELF')
     grinding, delivery, total = calculate_cost(weight, service_type)
     wait_time = calculate_wait_time(weight)
-    manual_address = data.get('address')
+    manual_address = serializer.validated_data.get('address')
 
     new_order = Order.objects.create(
-      customer_name = data.get('customer_name'),
-      phone_num = data.get('phone_num'),
+      customer_name = serializer.validated_data.get('customer_name'),
+      phone_num = serializer.validated_data.get('phone_num'),
       wheat_weight_kg = weight,
       service_type = service_type,
       manual_location = manual_address,
@@ -78,9 +78,9 @@ def create_order(request):
   serializer = OrderSerializer(data=request.data)
 
   if serializer.is_valid():
-    weight = serializer.validated_data.get('wheat_weight_kg', 0.0)
+    weight = float(serializer.validated_data.get('wheat_weight_kg', 0.0))
     service_type = serializer.validated_data.get("service_type", 'SELF')
-    distance = float(request.data.get('distance_km', 0.0))
+    distance = serializer.validated_data.get('distance_km', 0.0)
     grinding, delivery, total = calculate_cost(weight, service_type, distance)
     wait_time = calculate_wait_time(weight)
 
@@ -101,3 +101,31 @@ def create_order(request):
     }, status=status.HTTP_201_CREATED)
 
   return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def track_order(view_request, pk):
+   if pk.isdigit() and len(pk) < 8:
+      order = get_object_or_404(Order, id=pk)
+      serializer = OrderSerializer(order)
+      return Response(serializer.data)
+   else:
+      orders = Order.objects.filter(phone_number=pk)
+      if not orders.exists():
+         return Response({"error": "No orders found for this phone number"}, status=status.HTTP_404_NOT_FOUND)
+      serializer = OrderSerializer(orders, many= True)
+      return Response(serializer.data)
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def update_order_status(view_request, pk):
+   order = get_object_or_404(Order, id=pk)
+   new_status = view_request.data.get('status')
+   valid_statuses = ['WAITING', 'PROCESSING', 'COMPLETED']
+
+   if new_status not in valid_statuses:
+      return Response({"error": "Invalid status"}, status=status.HTTP_400_BAD_REQUEST)
+   order.status = new_status
+   order.save()
+
+   return Response({"message": f"order status updated to {new_status}"}, status=status.HTTP_200_OK)
