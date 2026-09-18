@@ -1,0 +1,78 @@
+body {
+  overflow: hidden;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+.page-container {
+  padding: 0 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .page-container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .page-container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .page-container {
+    width: 1170px;
+  }
+}
+
+/* work */
+header {
+  height: 80px;
+  /* position: fixed; */
+}
+header .page-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+header .logo {
+  font-size: 35px;
+  display: flex;
+}
+header .logo i {
+  margin-right: 10px;
+}
+header .logo span {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+header ul li {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+header .account .bell {
+  width: 40px;
+  height: 100%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+.pfp {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pfp img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  max-width: 100%;
+}
