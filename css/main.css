@@ -173,11 +173,12 @@ header .account .bell {
   display: flex;
   gap: 20px;
 }
-.dashboard_main .hero_buttons button {
+.dashboard_main .hero_buttons a button {
   padding: 12px 10px;
   border-radius: 25px;
   border: none;
   font-size: 17px;
+  cursor: pointer;
 }
 /* order page */
 .order_main h2 {
@@ -190,7 +191,7 @@ header .account .bell {
 }
 .order_main form {
   background-color: white;
-  max-width: 900px;
+  max-width: 400px;
   margin-top: 25px;
   padding: 20px;
 }
@@ -203,6 +204,7 @@ header .account .bell {
   max-width: 100%;
   border: 1px solid #ddd;
   outline: none;
+  width: 100%;
 }
 .order_main form label {
   display: block;
@@ -235,4 +237,12 @@ header .account .bell {
 .order_main form h3 {
   margin: 0 0 15px;
   font-size: 22px;
+}
+.order_main input[type="submit"] {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 25px;
 }

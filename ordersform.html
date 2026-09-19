@@ -49,24 +49,42 @@
         </div>
       </div>
     </header>
-    <div class="dashboard_main main_page">
-      <div class="hero_section">
-        <div class="page-container">
-          <div class="info">
-            <h1>Turn your wheat harvest into premium flour</h1>
-            <p>
-              Bring your freshly harvested grain to our mill. We provide
-              reliable, high-yield stone-ground and roller milling tailored for
-              local farmers, family farms, and smallholders.
-            </p>
-            <div class="hero_buttons">
-              <a href=""><button class="book">Book an appointment</button> </a>
-              <a href="ordersform.html">
-                <button class="check_orders">Check my orders</button>
-              </a>
-            </div>
+    <div class="order_main main_page mt-80">
+      <div class="head page-container">
+        <h2>Make your order</h2>
+        <p>
+          Please fill out the order form below with your grain details and
+          milling preferences. Be sure to specify your estimated wheat weight,
+          batch separation options, and target flour grades (such as whole wheat
+          or fine baker's flour) so our team can schedule your milling slot and
+          process your harvest smoothly.
+        </p>
+      </div>
+      <div class="page-container">
+        <form action="" method="get" id="form">
+          <!-- first name -->
+          <label for="first_name">First name</label>
+          <input type="text" id="first_name" required />
+          <!-- last name -->
+          <label for="last_name">Last name</label>
+          <input type="text" id="last_name" required />
+          <!-- phone -->
+          <label for="phone">Phone number</label>
+          <input type="text" id="phone" required />
+          <!-- wheat weight -->
+          <label for="wheat_weight">Wheat weight</label>
+          <input type="number" id="wheat_weight" required />
+          <!-- service -->
+          <h3>Choose a service</h3>
+          <div class="service-choices">
+            <input type="radio" id="self_arrival" name="service" checked />
+            <label class="radio" for="self_arrival">Self-Arrival</label>
+
+            <input type="radio" id="delivery" name="service" />
+            <label class="radio" for="delivery">Home Pickup & Delivery</label>
           </div>
-        </div>
+          <input type="submit" value="Set my order" />
+        </form>
       </div>
     </div>
   </body>

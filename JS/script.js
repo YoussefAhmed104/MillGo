@@ -17,3 +17,13 @@ radios.forEach(function (radio) {
     }
   });
 });
+
+let phone = document.getElementById("phone");
+let submit = document.querySelector(input[(type = "submit")]);
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function (e) {
+  if (phone.value.type !== number) {
+    e.preventDefault;
+  }
+});
