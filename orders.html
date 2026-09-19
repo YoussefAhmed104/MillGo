@@ -14,8 +14,88 @@
     <link rel="stylesheet" href="css/repeated.css" />
     <!-- Main CSS Style -->
     <link rel="stylesheet" href="css/orders.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <!-- JS File -->
     <script src="JS/orders.js" defer></script>
+    <script src="JS/script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="page-container ideal-flex">
+        <div class="logo">
+          <i class="fa-solid fa-building-wheat"></i>
+          <span>MillGo</span>
+        </div>
+        <div class="list">
+          <div class="yalahwy p-relative">
+            <div class="burger d-none" id="burger">
+              <i class="fa-solid fa-burger"></i>
+            </div>
+
+            <ul class="d-flex gap-20" id="dropUl">
+              <li>Dashboard</li>
+              <li>orders</li>
+              <li>queue</li>
+              <li>deliveries</li>
+              <li>reports</li>
+            </ul>
+          </div>
+        </div>
+        <div class="account ideal-flex">
+          <div class="bell">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="pfp">
+            <img src="imgs/background.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- main page -->
+    <div class="orders_main main_page">
+      <div class="head">
+        <p>MillGo / Orders</p>
+        <h2>Orders</h2>
+        <p>Track every milling request from booking to delivery</p>
+      </div>
+      <div class="chosen_buttons">
+        <button class="new_order">+New order</button>
+        <button class="export">
+          <i class="fa-solid fa-download"></i>Export
+        </button>
+      </div>
+
+      <div class="search_box">
+        <div class="search_input">
+          <div class="search">
+            <input type="search" placeholder="Search by order ID or customer" />
+          </div>
+          <div class="info between-flex">
+            <div class="total">42 total</div>
+            <div class="total">18 queued</div>
+            <div class="total">7 grinding</div>
+            <div class="total">5 ready</div>
+            <div class="total">12 delivered</div>
+          </div>
+        </div>
+        <div class="other_search_boxs">
+          <div class="date">
+            <span>18 June 2026</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+          <div class="service_type">
+            <span>All services</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+          <div class="statuses_type">
+            <span>All statuses</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+          <div class="filter_box ideal-flex">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,106 @@
+.orders_main.main_page {
+  padding: 20px 40px;
+}
+.orders_main .head {
+  margin-bottom: 10px;
+}
+.orders_main .head p:first-child {
+  font-size: 16px;
+}
+.orders_main .head h2 {
+  font-size: 32px;
+  margin: 10px 0 5px;
+}
+.orders_main .head p:last-child {
+  font-size: 16px;
+}
+.chosen_buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.chosen_buttons button {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.search_box {
+  background-color: white;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  border: 1px solid #eee;
+}
+@media (max-width: 991px) {
+  .search_box {
+    flex-direction: column-reverse;
+  }
+}
+.search_box .search_input .search {
+  position: relative;
+  margin-bottom: 15px;
+}
+.search_box .search_input .search::before {
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+  width: 30px;
+}
+.search_box .search_input {
+  flex-basis: 40%;
+}
+@media (max-width: 991px) {
+  .search_box .search_input {
+  }
+}
+.search_box .search_input input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 12px 10px 40px;
+}
+.search_box .search_input input::placeholder {
+  font-size: 18px;
+}
+.search_box .info.between-flex {
+  gap: 5px;
+}
+.search_box .info.between-flex div {
+  background-color: bisque;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.search_box .other_search_boxs {
+  width: 100%;
+  flex-basis: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.search_box .other_search_boxs div {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+.search_box .other_search_boxs div:not(:last-child) {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+.search_box .other_search_boxs div:not(:last-child) i {
+  display: block;
+  /* margin-left: 60px; */
+}
