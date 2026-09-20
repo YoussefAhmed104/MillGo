@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Millgo | Queue</title>
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- My Own Framework -->
+    <link rel="stylesheet" href="css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Repeated Style -->
+    <link rel="stylesheet" href="css/repeated.css" />
+    <!-- Main CSS Style -->
+    <link rel="stylesheet" href="css/queue.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- JS File -->
+    <script src="JS/queue.js" defer></script>
+    <script src="JS/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="page-container ideal-flex">
+        <div class="logo">
+          <i class="fa-solid fa-building-wheat"></i>
+          <span>MillGo</span>
+        </div>
+        <div class="list">
+          <div class="yalahwy p-relative">
+            <div class="burger d-none" id="burger">
+              <i class="fa-solid fa-burger"></i>
+            </div>
+
+            <ul class="d-flex gap-20" id="dropUl">
+              <li>Dashboard</li>
+              <li>orders</li>
+              <li>queue</li>
+              <li>deliveries</li>
+              <li>reports</li>
+            </ul>
+          </div>
+        </div>
+        <div class="account ideal-flex">
+          <div class="bell">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="pfp">
+            <img src="imgs/background.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- main page -->
+    <div class="queue_main main_page">
+      <!-- head -->
+      <div class="head">
+        <p>MillGo / Queue</p>
+        <h2>Queue control center</h2>
+        <p>where you manage and move orders through the mill</p>
+      </div>
+      <!-- chosen buttons -->
+      <div class="chosen_buttons">
+        <button class="pause">Pause new bookings</button>
+        <button class="new_order">
+          <i class="fa-solid fa-plus"></i>New order
+        </button>
+      </div>
+      <!-- 3 cards -->
+      <div class="cards_3">
+        <div class="card">
+          <div class="stat">
+            <span>Queued . 18</span>
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <div class="content">
+            <div class="box">
+              <!-- info -->
+              <div class="info">
+                <div class="name">
+                  <i class="fa-solid fa-circle"></i>
+                  <div>
+                    <h5 class="txt-cap">ahmed hassan</h5>
+                    <p>MG-292408f-300</p>
+                  </div>
+                </div>
+                <p class="details">25 KG . Self-arrival</p>
+              </div>
+              <!-- icon -->
+              <div class="icon">
+                <i class="fa-solid fa-ellipsis"></i>
+                <div>45 min</div>
+              </div>
+            </div>
+          </div>
+          <div class="drop_orders"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
