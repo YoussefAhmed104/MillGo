@@ -26,6 +26,10 @@
   border: 1px solid black;
   outline: none;
 }
+.chosen_buttons button i {
+  margin-right: 5px;
+  font-size: 13px;
+}
 
 .search_box {
   background-color: white;
@@ -62,6 +66,7 @@
 }
 @media (max-width: 991px) {
   .search_box .search_input {
+    margin: auto;
   }
 }
 .search_box .search_input input {
@@ -69,12 +74,19 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 10px 12px 10px 40px;
+  max-width: 100%;
 }
 .search_box .search_input input::placeholder {
   font-size: 18px;
 }
+@media (max-width: 550px) {
+  .search_box .search_input input::placeholder {
+    font-size: 12px;
+  }
+}
 .search_box .info.between-flex {
   gap: 5px;
+  flex-wrap: wrap;
 }
 .search_box .info.between-flex div {
   background-color: bisque;
@@ -87,6 +99,11 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
+}
+@media (max-width: 550px) {
+  .search_box .other_search_boxs {
+    display: none;
+  }
 }
 .search_box .other_search_boxs div {
   border: 1px solid #ccc;
@@ -103,4 +120,32 @@
 .search_box .other_search_boxs div:not(:last-child) i {
   display: block;
   /* margin-left: 60px; */
+}
+
+/* table */
+.customers_table table {
+  background-color: white;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100%;
+  padding: 0 20px 20px;
+  text-align: left;
+  border-spacing: 0px;
+}
+.customers_table tr.table_header {
+  border-bottom: 1px solid black;
+  background-color: beige;
+}
+.customers_table tr.table_body {
+  border-bottom: 1px solid black;
+}
+.customers_table th {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 0;
+}
+.customers_table td {
+  padding: 25px 0;
 }

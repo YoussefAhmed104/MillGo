@@ -53,18 +53,22 @@
     </header>
     <!-- main page -->
     <div class="orders_main main_page">
+      <!-- head -->
       <div class="head">
         <p>MillGo / Orders</p>
         <h2>Orders</h2>
         <p>Track every milling request from booking to delivery</p>
       </div>
+      <!-- chosen buttons -->
       <div class="chosen_buttons">
-        <button class="new_order">+New order</button>
+        <button class="new_order">
+          <i class="fa-solid fa-plus"></i>New order
+        </button>
         <button class="export">
           <i class="fa-solid fa-download"></i>Export
         </button>
       </div>
-
+      <!-- search box -->
       <div class="search_box">
         <div class="search_input">
           <div class="search">
@@ -95,6 +99,33 @@
             <i class="fa-solid fa-sliders"></i>
           </div>
         </div>
+      </div>
+      <!-- customers table -->
+      <div class="customers_table">
+        <table>
+          <tr class="table_header">
+            <th>Order id</th>
+            <th>customer</th>
+            <th>booked</th>
+            <th>weight</th>
+            <th>service</th>
+            <th>status</th>
+            <th>estimated ready</th>
+            <th>actions</th>
+            <th></th>
+          </tr>
+          <tr class="table_body">
+            <td>MG-240618</td>
+            <td>ahmed hassan</td>
+            <td>09:42 AM</td>
+            <td>25 kg</td>
+            <td>See-arrvial</td>
+            <td><div>Queued</div></td>
+            <td>10:27 AM</td>
+            <td>View details</td>
+            <td><i class="fa-solid fa-ellipsis"></i></td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>
