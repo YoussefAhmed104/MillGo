@@ -249,6 +249,12 @@
   color: var(--red-color);
 }
 /* Start Text */
+.txt-cap {
+  text-transform: capitalize;
+}
+.txt-upper {
+  text-transform: uppercase;
+}
 .txt-c {
   text-align: center;
 }

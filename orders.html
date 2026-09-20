@@ -76,10 +76,10 @@
           </div>
           <div class="info between-flex">
             <div class="total">42 total</div>
-            <div class="total">18 queued</div>
-            <div class="total">7 grinding</div>
-            <div class="total">5 ready</div>
-            <div class="total">12 delivered</div>
+            <div class="queued">18 queued</div>
+            <div class="gridning">7 grinding</div>
+            <div class="ready">5 ready</div>
+            <div class="delivered">12 delivered</div>
           </div>
         </div>
         <div class="other_search_boxs">
@@ -103,28 +103,32 @@
       <!-- customers table -->
       <div class="customers_table">
         <table>
-          <tr class="table_header">
-            <th>Order id</th>
-            <th>customer</th>
-            <th>booked</th>
-            <th>weight</th>
-            <th>service</th>
-            <th>status</th>
-            <th>estimated ready</th>
-            <th>actions</th>
-            <th></th>
-          </tr>
-          <tr class="table_body">
-            <td>MG-240618</td>
-            <td>ahmed hassan</td>
-            <td>09:42 AM</td>
-            <td>25 kg</td>
-            <td>See-arrvial</td>
-            <td><div>Queued</div></td>
-            <td>10:27 AM</td>
-            <td>View details</td>
-            <td><i class="fa-solid fa-ellipsis"></i></td>
-          </tr>
+          <thead>
+            <tr class="table_header">
+              <th>Order id</th>
+              <th>customer</th>
+              <th>booked</th>
+              <th>weight</th>
+              <th>service</th>
+              <th>status</th>
+              <th>estimated ready</th>
+              <th>actions</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table_body">
+              <td>MG-240618</td>
+              <td class="txt-cap">ahmed hassan</td>
+              <td>09:42 AM</td>
+              <td>25 kg</td>
+              <td>See-arrvial</td>
+              <td><div class="style_box queued">Queued</div></td>
+              <td>10:27 AM</td>
+              <td class="view_link">View details</td>
+              <td><i class="fa-solid fa-ellipsis"></i></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
