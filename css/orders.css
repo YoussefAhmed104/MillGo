@@ -8,7 +8,7 @@
   font-size: 16px;
 }
 .orders_main .head h2 {
-  font-size: 32px;
+  font-size: 40px;
   margin: 10px 0 5px;
 }
 .orders_main .head p:last-child {
@@ -179,9 +179,53 @@
   background-color: orange;
   padding: 5px;
   border-radius: 35px;
-  width: 70%;
+  width: fit-content;
 }
 .customers_table table td.view_link {
   cursor: pointer;
   color: green;
+}
+/* customers_table in media querry */
+@media (max-width: 991px) {
+  .customers_table table {
+    display: none;
+  }
+}
+.customers_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.customer {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 20px 15px;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+.customer .circle {
+  display: flex;
+  align-items: center;
+}
+.customer .content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.customer .content h3 {
+  font-size: 20px;
+}
+.customer .content p {
+  color: #667085;
+  font-size: 16px;
+}
+.customer .time {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
